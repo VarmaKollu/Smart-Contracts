@@ -1,11 +1,4 @@
-<p align="center">
-  <img src="https://calyptus.co/wp-content/uploads/logo.svg" width="300" title="Calyptus" >
-</p>
-<br />
-
 # Calyptus Smart Contract Security Challenge
-
-
 
 Time to get your hands dirty!
 
