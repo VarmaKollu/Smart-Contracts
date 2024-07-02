@@ -68,6 +68,7 @@ Alice has deployed a secret Lock on blockchain that opens with a password. Help 
 
 **Pass this [Test](test/no-privacy.js) to win the challenge.**
 
+
 ---
 
 ## Challenge 2
