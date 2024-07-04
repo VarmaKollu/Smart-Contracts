@@ -36,7 +36,7 @@ it("Exploit", async function () {
 
 ### Do Not Trust
 
-To exploit the  Do Trust Lender pool, you can follow these steps in the reenter.js test file:
+To exploit the  Do Trust Lender pool, you can follow these steps in the do-not-trust.js test file:
 
 #### *Steps to Exploit*
 
@@ -74,7 +74,7 @@ To exploit the  simple lending pool that allows its users to deposit ETH, you ca
 
 #### *Steps to Exploit*
 
-- The smart contract `ReenterPool.sol` allows users to deposit ETH, withdraw ETH, and execute flash loans. It has a reentrancy vulnerability in the `withdraw` function.
+- The smart contract `Reenter.sol` allows users to deposit ETH, withdraw ETH, and execute flash loans. It has a reentrancy vulnerability in the `withdraw` function.
 
 #### *Exploit Code*
 Here's how you can write the exploit in the Exploit section:
