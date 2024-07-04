@@ -30,3 +30,37 @@ it("Exploit", async function () {
 
 - `this.lock.connect(bob).unlock(passwordSlot)`: Bob uses the retrieved password to call the unlock function.
 
+---
+
+## Challenge 2
+
+### Do Not Trust
+
+To exploit the  Do Trust Lender pool, you can follow these steps in the reenter.js test file:
+
+#### *Steps to Exploit*
+
+- Bob deploys `ReentersBob`, a contract designed to exploit `DoTrustLender`.
+
+- `ReentersBob` calls `flashLoan` and manipulates its state before the final balance check, allowing Bob to drain all tokens into his account.
+
+#### *Exploit Code*
+Here's how you can write the exploit in the Exploit section:
+
+```javascript
+ it("Exploit", async function () {
+    /** CODE YOUR EXPLOIT HERE */
+    const bobFactory = await ethers.getContractFactory("ReentersBob", alice);
+    this.bobsContract = await bobFactory.deploy(this.pool.address);
+    this.bobsContract.connect(bob).attack();
+  });
+```
+
+#### *Explanation*
+- The `flashLoan` function in `DoTrustLender` allows borrowing tokens without proper checks on the `target` contract's actions. This enables re-entrancy attacks where the `target` contract can repeatedly call back into `DoTrustLender`, manipulating token balances before final checks.
+
+- Utilize the `ReentersBob` contract to perform the attack. This contract must be created and deployed with Alice's permissions.
+
+- Connect Bob's address to `ReentersBob` and execute the `attack` function to exploit the vulnerability.
+
+
