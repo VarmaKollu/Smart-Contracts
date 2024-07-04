@@ -63,4 +63,31 @@ Here's how you can write the exploit in the Exploit section:
 
 - Connect Bob's address to `ReentersBob` and execute the `attack` function to exploit the vulnerability.
 
+---
+
+## Challenge 3
+
+### Re-enter
+
+To exploit the  simple lending pool that allows its users to deposit ETH, you can follow these steps in the reenter.js test file:
+
+#### *Steps to Exploit*
+
+- The smart contract `ReenterPool.sol` allows users to deposit ETH, withdraw ETH, and execute flash loans. It has a reentrancy vulnerability in the `withdraw` function.
+
+#### *Exploit Code*
+Here's how you can write the exploit in the Exploit section:
+
+```javascript
+ it("Exploit", async function () {
+    /** CODE YOUR EXPLOIT HERE */
+    const bobFactory = await ethers.getContractFactory("ReentersBob", alice);
+    this.bobsContract = await bobFactory.deploy(this.pool.address);
+    this.bobsContract.connect(bob).attack();
+  });
+```
+
+#### *Explanation*
+-     Setup: Initializes Alice and Bob as signers and deploys the ReenterPool contract with an initial balance of 1000 ETH.
+- Exploit: Bob deploys a contract ReentersBob that utilizes a reentrancy attack via the withdraw function of ReenterPool. The attack allows Bob's contract to repeatedly withdraw ETH from Alice's pool before updating the balance.
 
