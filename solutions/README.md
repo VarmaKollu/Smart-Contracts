@@ -40,28 +40,29 @@ To exploit the  Do Trust Lender pool, you can follow these steps in the reenter.
 
 #### *Steps to Exploit*
 
-- Bob deploys `ReentersBob`, a contract designed to exploit `DoTrustLender`.
-
-- `ReentersBob` calls `flashLoan` and manipulates its state before the final balance check, allowing Bob to drain all tokens into his account.
+- `DoTrustLender.sol` contract implements a flash loan mechanism that allows borrowers to execute arbitrary functions after borrowing tokens. It inherits from `ReentrancyGuard` to prevent reentrancy attacks on its functions.
 
 #### *Exploit Code*
 Here's how you can write the exploit in the Exploit section:
 
 ```javascript
  it("Exploit", async function () {
-    /** CODE YOUR EXPLOIT HERE */
-    const bobFactory = await ethers.getContractFactory("ReentersBob", alice);
-    this.bobsContract = await bobFactory.deploy(this.pool.address);
-    this.bobsContract.connect(bob).attack();
+    /** CODE YOUR EXPLOIT HERE  */
+    const DoNotTrustBobFactory = await ethers.getContractFactory(
+      "DoNotTrustBob",
+      alice
+    );
+    this.exploit = await DoNotTrustBobFactory.deploy();
+    await this.exploit
+      .connect(bob)
+      .attack(this.pool.address, this.token.address);
   });
 ```
 
 #### *Explanation*
-- The `flashLoan` function in `DoTrustLender` allows borrowing tokens without proper checks on the `target` contract's actions. This enables re-entrancy attacks where the `target` contract can repeatedly call back into `DoTrustLender`, manipulating token balances before final checks.
+- **Setup**: Initializes Alice and Bob as signers and deploys the `CalyptusToken` and `DoTrustLender` contracts. Transfers 1 million CPT tokens to the lending pool.
 
-- Utilize the `ReentersBob` contract to perform the attack. This contract must be created and deployed with Alice's permissions.
-
-- Connect Bob's address to `ReentersBob` and execute the `attack` function to exploit the vulnerability.
+- **Exploit**: Bob deploys a contract `DoNotTrustBob` that exploits the `flashLoan` function of `DoTrustLender`. The attack involves borrowing all tokens from the pool and executing a function that transfers them to Bob's account.
 
 ---
 
@@ -88,6 +89,7 @@ Here's how you can write the exploit in the Exploit section:
 ```
 
 #### *Explanation*
--     Setup: Initializes Alice and Bob as signers and deploys the ReenterPool contract with an initial balance of 1000 ETH.
-- Exploit: Bob deploys a contract ReentersBob that utilizes a reentrancy attack via the withdraw function of ReenterPool. The attack allows Bob's contract to repeatedly withdraw ETH from Alice's pool before updating the balance.
+- **Setup**: Initializes Alice and Bob as signers and deploys the ReenterPool contract with an initial balance of 1000 ETH.
+
+- **Exploit**: Bob deploys a contract ReentersBob that utilizes a reentrancy attack via the withdraw function of ReenterPool. The attack allows Bob's contract to repeatedly withdraw ETH from Alice's pool before updating the balance.
 
