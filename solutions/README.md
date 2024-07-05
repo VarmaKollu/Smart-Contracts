@@ -99,7 +99,7 @@ Here's how you can write the exploit in the Exploit section:
 
 ### Head or Tail
 
- The HeadOrTail contract has a vulnerability where the randomness is derived from global variables, making it predictable. you can follow these steps in the rehead-or-tails.js test file:
+The HeadOrTail contract has a vulnerability where the randomness is derived from global variables, making it predictable. you can follow these steps in the rehead-or-tails.js test file:
 
 #### *Steps to Exploit*
 
