@@ -61,44 +61,9 @@ Alice has deployed a secret Lock on blockchain that opens with a password. Help 
 
 **Pass this [Test](test/no-privacy.js) to win the challenge.**
 
-
 ---
 
 ## Challenge 2
-
-### Head or Tail (Vulnerablilty: Randomness through global variable)
-
----
-
-Alice and Bob are flipping a coin to decide who is a better smart contract programer.
-
-Help Bob win the coin flip 5 times in a row to win the challenge.
-
-**Check out the [Head or Tail](contracts/HeadOrTale/HeadOrTail.sol) smart-contract and find a way to hack it.**
-
-**Pass this [Test](test/head-or-tail.js) to win the challenge.**
-
----
-
-## Challenge 3
-
-### Mount Calyptus (Vulnerability: Denial of Service due to push pattern)
-
----
-
-Everyone wants to be at the top of Mount Calyptus, but there's space for only one. As they say, everything can be bought with money, so can be the spot at the summit. Whoever sends the Mount Calyptus Smart Contract an amount of ether that is larger than the current bribe replaces the previous climber. On such an event, the replaced climber gets paid the new bribe, making a bit of ether in the process!
-
-Alice wants to be at the top at all cost! Alice reclaims the top spot as soon as anyone claims it sending equal bribe.
-
-Help Bob stop Alice from reclaiming the atTheTop position.
-
-**Check out the [Calyptus Hill](contracts/CalyptusHill/CalyptusHill.sol) smart-contract and find a way to hack it.**
-
-**Pass this [Test](test/calyptus-hill.js) to win the challenge.**
-
----
-
-## Challenge 4
 
 ### Do Not Trust (Vulnerability: Insecure External Call)
 
@@ -116,7 +81,7 @@ The pool has 1 million Calyptus Tokens (CPT) in balance. Complete the challenge 
 
 ---
 
-## Challenge 5
+## Challenge 3
 
 ### Re-enter (Vulnerability: Reentrancy)
 
@@ -131,6 +96,40 @@ Help Bob steal all the ETH from Alice's lending pool.
 **Check out the [ReenterPool](contracts/Reenter/Reenter.sol) smart-contract and find a way to hack it.**
 
 **Pass this [Test](test/reenter.js) to win the challenge.**
+
+---
+
+## Challenge 4
+
+### Head or Tail (Vulnerablilty: Randomness through global variable)
+
+---
+
+Alice and Bob are flipping a coin to decide who is a better smart contract programer.
+
+Help Bob win the coin flip 5 times in a row to win the challenge.
+
+**Check out the [Head or Tail](contracts/HeadOrTale/HeadOrTail.sol) smart-contract and find a way to hack it.**
+
+**Pass this [Test](test/head-or-tail.js) to win the challenge.**
+
+---
+
+## Challenge 5
+
+### Mount Calyptus (Vulnerability: Denial of Service due to push pattern)
+
+---
+
+Everyone wants to be at the top of Mount Calyptus, but there's space for only one. As they say, everything can be bought with money, so can be the spot at the summit. Whoever sends the Mount Calyptus Smart Contract an amount of ether that is larger than the current bribe replaces the previous climber. On such an event, the replaced climber gets paid the new bribe, making a bit of ether in the process!
+
+Alice wants to be at the top at all cost! Alice reclaims the top spot as soon as anyone claims it sending equal bribe.
+
+Help Bob stop Alice from reclaiming the atTheTop position.
+
+**Check out the [Calyptus Hill](contracts/CalyptusHill/CalyptusHill.sol) smart-contract and find a way to hack it.**
+
+**Pass this [Test](test/calyptus-hill.js) to win the challenge.**
 
 ---
 
